@@ -31,7 +31,7 @@ def root():
 
 
 
-@app.post("/upload-resume/")
+@app.post("/upload-resume")
 async def upload_resume(file: UploadFile = File(...)):
     content=await file.read()
     pdf_reader = PdfReader(io.BytesIO(content))
