@@ -31,7 +31,7 @@ def root():
 
 
 
-@app.post("/upload-resume")
+@app.post("/upload-resume/")
 async def upload_resume(file: UploadFile = File(...)):
     content=await file.read()
     pdf_reader = PdfReader(io.BytesIO(content))
@@ -44,7 +44,7 @@ async def upload_resume(file: UploadFile = File(...)):
         "extracted_text": text # Return only the first 500 characters for preview
         }
 
-@app.post("/analyze-resume")
+@app.post("/analyze-resume/")
 async def analyze_resume(file: UploadFile = File(...)):
     contents = await file.read()
     pdf_reader = PdfReader(io.BytesIO(contents))
